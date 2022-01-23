@@ -40,5 +40,17 @@ describe('A MathBasic', () => {
       expect(() => MathBasic.subtract(1, 2, 3)).toThrowError();
       expect(() => MathBasic.subtract(1, 2, 3, 4)).toThrowError();
     });
+
+    it('should throw error when given non-number parameters', () => {
+      expect(() => MathBasic.subtract('1', '2')).toThrowError();
+      expect(() => MathBasic.subtract(true, {})).toThrowError();
+      expect(() => MathBasic.subtract(null, false)).toThrowError();
+    });
+
+    it('should return a - b when given two number parameters', () => {
+      expect(MathBasic.subtract(2, 2)).toEqual(0);
+      expect(MathBasic.subtract(16, 8)).toEqual(8);
+      expect(MathBasic.subtract(3, 7)).toEqual(-4);
+    });
   });
 });
