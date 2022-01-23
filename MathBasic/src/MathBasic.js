@@ -1,14 +1,14 @@
 const MathBasic = {
-  add: function add() {
+  add: () => {
 
   },
-  subtract: function subtract() {
+  subtract: () => {
 
   },
-  multiply: function multiply() {
+  multiply: () => {
 
   },
-  divide: function divide() {
+  divide: () => {
 
   },
 };
