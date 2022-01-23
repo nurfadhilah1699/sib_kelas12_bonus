@@ -19,5 +19,11 @@ describe('A MathBasic', () => {
       expect(() => MathBasic.add(1, 2, 3)).toThrowError();
       expect(() => MathBasic.add(1, 2, 3, 4)).toThrowError();
     });
+
+    it('should throw error when given non-number parameters', () => {
+      expect(() => MathBasic.add('1', '2')).toThrowError();
+      expect(() => MathBasic.add(true, {})).toThrowError();
+      expect(() => MathBasic.add(null, false)).toThrowError();
+    });
   });
 });
