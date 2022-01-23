@@ -38,7 +38,6 @@ describe('A MathBasic', () => {
       expect(() => MathBasic.subtract()).toThrowError();
       expect(() => MathBasic.subtract(1)).toThrowError();
       expect(() => MathBasic.subtract(1, 2, 3)).toThrowError();
-      expect(() => MathBasic.subtract(1, 2, 3, 4)).toThrowError();
     });
 
     it('should throw error when given non-number parameters', () => {
@@ -59,7 +58,6 @@ describe('A MathBasic', () => {
       expect(() => MathBasic.multiply()).toThrowError();
       expect(() => MathBasic.multiply(1)).toThrowError();
       expect(() => MathBasic.multiply(1, 2, 3)).toThrowError();
-      expect(() => MathBasic.multiply(1, 2, 3, 4)).toThrowError();
     });
 
     it('should throw error when given non-number parameters', () => {
@@ -80,7 +78,6 @@ describe('A MathBasic', () => {
       expect(() => MathBasic.divide()).toThrowError();
       expect(() => MathBasic.divide(1)).toThrowError();
       expect(() => MathBasic.divide(1, 2, 3)).toThrowError();
-      expect(() => MathBasic.divide(1, 2, 3, 4)).toThrowError();
     });
 
     it('should throw error when given non-number parameters', () => {
