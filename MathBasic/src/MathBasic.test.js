@@ -25,5 +25,11 @@ describe('A MathBasic', () => {
       expect(() => MathBasic.add(true, {})).toThrowError();
       expect(() => MathBasic.add(null, false)).toThrowError();
     });
+
+    it('should return a + b when given two number parameters', () => {
+      expect(MathBasic.add(2, 2)).toEqual(4);
+      expect(MathBasic.add(16, 8)).toEqual(24);
+      expect(MathBasic.add(3, 7)).toEqual(10);
+    });
   });
 });
