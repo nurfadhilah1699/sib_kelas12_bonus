@@ -3,61 +3,43 @@ class FigureCalculator {
     this._mathBasic = mathBasic;
   }
 
+  _verifyArgs(args, expectedArgsCount) {
+    if (args.length !== expectedArgsCount) {
+      throw new Error(`fungsi hanya menerima ${expectedArgsCount} parameters`);
+    }
+
+    args.forEach((arg) => {
+      if (typeof arg !== 'number') {
+        throw new Error('fungsi hanya menerima parameter number');
+      }
+    });
+
+    return args;
+  }
+
   calculateRectanglePerimeter(...args) {
-    if (args.length !== 2) {
-      throw new Error('fungsi hanya menerima dua parameter');
-    }
-
-    const [length, width] = args;
-
-    if (typeof length !== 'number' || typeof width !== 'number') {
-      throw new Error('fungsi hanya menerima parameter number');
-    }
+    const [length, width] = this._verifyArgs(args, 2);
 
     // formula: (2 * (length + width))
     return this._mathBasic.multiply(2, this._mathBasic.add(length, width));
   }
 
   calculateRectangleArea(...args) {
-    if (args.length !== 2) {
-      throw new Error('fungsi hanya menerima dua parameter');
-    }
-
-    const [length, width] = args;
-
-    if (typeof length !== 'number' || typeof width !== 'number') {
-      throw new Error('fungsi hanya menerima parameter number');
-    }
+    const [length, width] = this._verifyArgs(args, 2);
 
     // formula: length * width
     return this._mathBasic.multiply(length, width);
   }
 
   calculateTrianglePerimeter(...args) {
-    if (args.length !== 3) {
-      throw new Error('fungsi hanya menerima tiga parameter');
-    }
-
-    const [sideA, sideB, base] = args;
-
-    if (typeof sideA !== 'number' || typeof sideB !== 'number' || typeof base !== 'number') {
-      throw new Error('fungsi hanya menerima parameter number');
-    }
+    const [sideA, sideB, base] = this._verifyArgs(args, 3);
 
     // formula: ((sideA + sideB) + base)
     return this._mathBasic.add(sideA, this._mathBasic.add(sideB, base));
   }
 
   calculateTriangleArea(...args) {
-    if (args.length !== 2) {
-      throw new Error('fungsi hanya menerima dua parameter');
-    }
-
-    const [base, height] = args;
-
-    if (typeof base !== 'number' || typeof height !== 'number') {
-      throw new Error('fungsi hanya menerima parameter number');
-    }
+    const [base, height] = this._verifyArgs(args, 2);
 
     // formula: ((base * heigth) / 2)
     return this._mathBasic.divide(this._mathBasic.multiply(base, height), 2);
