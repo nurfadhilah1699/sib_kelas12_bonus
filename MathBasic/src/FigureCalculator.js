@@ -33,9 +33,35 @@ class FigureCalculator {
     return this._mathBasic.multiply(length, width);
   }
 
-  calculateTrianglePerimeter() { }
+  calculateTrianglePerimeter(...args) {
+    if (args.length !== 3) {
+      throw new Error('fungsi hanya menerima tiga parameter');
+    }
 
-  calculateTriangleArea() { }
+    const [sideA, sideB, base] = args;
+
+    if (typeof sideA !== 'number' || typeof sideB !== 'number' || typeof base !== 'number') {
+      throw new Error('fungsi hanya menerima parameter number');
+    }
+
+    // formula: ((sideA + sideB) + base)
+    return this._mathBasic.add(sideA, this._mathBasic.add(sideB, base));
+  }
+
+  calculateTriangleArea(...args) {
+    if (args.length !== 2) {
+      throw new Error('fungsi hanya menerima dua parameter');
+    }
+
+    const [base, height] = args;
+
+    if (typeof base !== 'number' || typeof height !== 'number') {
+      throw new Error('fungsi hanya menerima parameter number');
+    }
+
+    // formula: ((base * heigth) / 2)
+    return this._mathBasic.divide(this._mathBasic.multiply(base, height), 2);
+  }
 }
 
 module.exports = FigureCalculator;
